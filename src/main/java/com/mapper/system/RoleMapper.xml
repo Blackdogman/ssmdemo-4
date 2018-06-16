@@ -90,4 +90,10 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where role_id = #{roleId,jdbcType=VARCHAR}
   </update>
+
+  <select id="listAllRole" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_role
+  </select>
 </mapper>
