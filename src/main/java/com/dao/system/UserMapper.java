@@ -2,6 +2,8 @@ package com.dao.system;
 
 import com.model.system.User;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(String userId);
 
@@ -14,4 +16,8 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User getUserByLoginNameAndPassword(User user);
+
+    List<User> listAllUser();
 }

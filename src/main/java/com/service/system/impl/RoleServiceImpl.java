@@ -1,8 +1,8 @@
 package com.service.system.impl;
 
-import com.service.system.UserService;
+import com.service.system.RoleService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class RoleServiceImpl implements RoleService {
 }
