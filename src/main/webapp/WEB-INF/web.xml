@@ -68,6 +68,6 @@ id="MyWebApp" version="2.5">
 
 	<!-- DEFAULT PAGE -->
 	<welcome-file-list>
-		<welcome-file>login.jsp</welcome-file>
+		<welcome-file>/view/frame/login.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

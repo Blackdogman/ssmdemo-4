@@ -3,26 +3,27 @@ package com.model.system;
 import java.util.Date;
 
 public class User {
+    /** 用户ID */
     private String userId;
-
+    /** 用户姓名 */
     private String userName;
-
+    /** 登陆名 */
     private String loginName;
-
+    /** 登陆密码 */
     private String password;
-
+    /** 邮箱 */
     private String email;
-
+    /** 性别 */
     private String sex;
-
+    /** 生日 */
     private String birthday;
-
+    /** */
     private Date intime;
-
+    /** 籍贯 */
     private String nativePlace;
-
+    /** 毕业院校 */
     private String recordSchool;
-
+    /** 创建时间 */
     private Date createTime;
 
     public String getUserId() {
@@ -111,5 +112,22 @@ public class User {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", loginName='" + loginName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", intime=" + intime +
+                ", nativePlace='" + nativePlace + '\'' +
+                ", recordSchool='" + recordSchool + '\'' +
+                ", createTime=" + createTime +
+                '}';
     }
 }
