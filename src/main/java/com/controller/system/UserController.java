@@ -18,14 +18,14 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/userListUi.do")
-    public String userListUi(Model model){
+    public String userListUi(Model model) {
         List<User> userList = userService.listAllUser();
         model.addAttribute("userList", userList);
         return "view/frame/user/userList";
     }
 
     @RequestMapping("/addUser.do")
-    public String addUser(User user){
+    public String addUser(User user) {
         user.setUserId(PrimaryKeyUtil.getPrimaryKey());
         user.setCreateTime(new Date());
         int flag = userService.addUser(user);
@@ -33,8 +33,21 @@ public class UserController {
     }
 
     @RequestMapping("/deleteUser.do")
-    public String deleteUser(String userId){
-        int flag =userService.deleteUser(userId);
+    public String deleteUser(String userId) {
+        int flag = userService.deleteUser(userId);
+        return "redirect:/userController/userListUi.do";
+    }
+
+    @RequestMapping("/updateUserUi.do")
+    public String updateUserUi(String userId, Model model) {
+        User user = userService.getUserByUserId(userId);
+        model.addAttribute("user", user);
+        return "view/frame/user/userUpdate";
+    }
+
+    @RequestMapping("/updateUser.do")
+    public String updateUser(User user){
+        int flag = userService.updateUser(user);
         return "redirect:/userController/userListUi.do";
     }
 }

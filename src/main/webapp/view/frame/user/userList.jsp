@@ -67,8 +67,7 @@
                                 class="icon-trash-o"></span> 删除</a></div>
                     </td>
                     <td>
-                        <div class="button-group"><a class="button border-blue" href="javascript:void(0)"
-                                                     onclick="return del(1)"><span class="icon-database"></span> 修改</a>
+                        <div class="button-group"><a class="button border-blue" href="<%=basePath%>userController/updateUserUi.do?userId=${user.userId}"><span class="icon-database"></span> 修改</a>
                         </div>
                     </td>
                 </tr>
