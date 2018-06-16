@@ -25,15 +25,13 @@
 <div class="panel admin-panel">
     <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
     <div class="body-content">
-        <form method="post" class="form-x" action="<%=basePath%>userController/updateUser.do">
-            <input type="hidden" name="userId" value="${user.userId}"/>
+        <form method="post" class="form-x" action="<%=basePath%>userController/addUser.do">
             <div class="form-group">
                 <div class="label">
                     <label>用户姓名：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="${user.userName}" name="userName"
-                           data-validate="required:请输入标题"/>
+                    <input type="text" class="input w50" value="" name="userName" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -42,8 +40,16 @@
                     <label>登陆名：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="${user.loginName}" name="loginName"
-                           data-validate="required:请输入标题"/>
+                    <input type="text" class="input w50" value="" name="loginName" data-validate="required:请输入标题"/>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>登陆密码：</label>
+                </div>
+                <div class="field">
+                    <input type="text" class="input w50" value="" name="password" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -52,8 +58,7 @@
                     <label>邮箱：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="${user.email}" name="email"
-                           data-validate="required:请输入标题"/>
+                    <input type="text" class="input w50" value="" name="email" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -62,7 +67,7 @@
                     <label>性别：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="${user.sex}" name="sex" data-validate="required:请输入标题"/>
+                    <input type="text" class="input w50" value="" name="sex" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -71,8 +76,7 @@
                     <label>生日：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="${user.birthday}" name="birthday"
-                           data-validate="required:请输入标题"/>
+                    <input type="text" class="input w50" value="" name="birthday" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -81,8 +85,7 @@
                     <label>籍贯：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="${user.nativePlace}" name="nativePlace"
-                           data-validate="required:请输入标题"/>
+                    <input type="text" class="input w50" value="" name="nativePlace" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
                 </div>
             </div>
@@ -91,19 +94,18 @@
                     <label>毕业院校：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input w50" value="${user.recordSchool}" name="recordSchool"
-                           data-validate="required:请输入标题"/>
+                    <input type="text" class="input w50" value="" name="recordSchool" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
                 </div>
 
-                <div class="form-group">
-                    <div class="label">
-                        <label></label>
-                    </div>
-                    <div class="field">
-                        <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
-                    </div>
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
                 </div>
+                <div class="field">
+                    <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+                </div>
+            </div>
             </div>
         </form>
 

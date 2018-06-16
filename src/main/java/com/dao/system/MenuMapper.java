@@ -2,6 +2,8 @@ package com.dao.system;
 
 import com.model.system.Menu;
 
+import java.util.List;
+
 public interface MenuMapper {
     int deleteByPrimaryKey(String menuId);
 
@@ -14,4 +16,6 @@ public interface MenuMapper {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+
+    List<Menu> listAllMenu();
 }

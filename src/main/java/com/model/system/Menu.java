@@ -3,7 +3,9 @@ package com.model.system;
 import java.util.Date;
 
 public class Menu {
-    /**菜单ID*/
+    /**
+     * 菜单ID
+     */
     private String menuId;
     /** */
     private String pId;
