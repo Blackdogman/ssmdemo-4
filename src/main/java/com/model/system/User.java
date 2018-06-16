@@ -1,22 +1,29 @@
 package com.model.system;
 
+import java.util.Date;
+
 public class User {
-	/** userId */
     private String userId;
-    /** name */
-    private String name;
-    /** age */
-    private String age;
-    /** sex */
-    private String sex;
-    /** hobby */
-    private String hobby;
-    /** loginName */
+
+    private String userName;
+
     private String loginName;
-    /** password */
+
     private String password;
-    /** createTime */
-    private String createTime;
+
+    private String email;
+
+    private String sex;
+
+    private String birthday;
+
+    private Date intime;
+
+    private String nativePlace;
+
+    private String recordSchool;
+
+    private Date createTime;
 
     public String getUserId() {
         return userId;
@@ -26,36 +33,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getHobby() {
-        return hobby;
-    }
-
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getLoginName() {
@@ -74,11 +57,59 @@ public class User {
         this.password = password;
     }
 
-    public String getCreateTime() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public Date getIntime() {
+        return intime;
+    }
+
+    public void setIntime(Date intime) {
+        this.intime = intime;
+    }
+
+    public String getNativePlace() {
+        return nativePlace;
+    }
+
+    public void setNativePlace(String nativePlace) {
+        this.nativePlace = nativePlace;
+    }
+
+    public String getRecordSchool() {
+        return recordSchool;
+    }
+
+    public void setRecordSchool(String recordSchool) {
+        this.recordSchool = recordSchool;
+    }
+
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 }
