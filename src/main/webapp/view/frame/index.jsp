@@ -37,7 +37,8 @@
         <li><a href="<%=basePath%>userController/userListUi.do" target="right"><span class="icon-caret-right"></span>用户管理</a>
         </li>
         <li><a href="info.jsp" target="right"><span class="icon-caret-right"></span>角色管理</a></li>
-        <li><a href="info.jsp" target="right"><span class="icon-caret-right"></span>菜单管理</a></li>
+        <li><a href="<%=basePath%>menuController/menuListUi.do" target="right"><span class="icon-caret-right"></span>菜单管理</a>
+        </li>
     </ul>
 </div>
 <script type="text/javascript">

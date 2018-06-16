@@ -28,7 +28,7 @@
         <div class="padding border-bottom">
             <ul class="search">
                 <li>
-                    <a href="<%=basePath%>view/frame/user/userAdd.jsp" class="button border-blue" id=""><span
+                    <a href="<%=basePath%>view/frame/menupage/menuAdd.jsp" class="button border-blue" id=""><span
                             class="icon-database"></span> 添加
                     </a>
                     <button type="button" class="button border-green" id="checkall"><span class="icon-check"></span> 全选
@@ -57,13 +57,14 @@
                     <td>${menu.anthortyUrl}</td>
                     <td>${menu.createTime}</td>
                     <td>
-                        <div class="button-group"><a class="button border-red" href="<%=basePath%>
-            menuController/deleteMenu.do?menuId=${menu.menuId}"><span
+                        <div class="button-group"><a class="button border-red"
+                                                     href="<%=basePath%>menuController/deleteMenu.do?menuId=${menu.menuId}"><span
                                 class="icon-trash-o"></span> 删除</a></div>
                     </td>
                     <td>
-                        <div class="button-group"><a class="button border-blue" href="<%=basePath%>
-            menuController/updateMenuUi.do?menuId=${menu.menuId}"><span class="icon-database"></span> 修改</a>
+                        <div class="button-group"><a class="button border-blue"
+                                                     href="<%=basePath%>menuController/updateMenuUi.do?menuId=${menu.menuId}"><span
+                                class="icon-database"></span> 修改</a>
                         </div>
                     </td>
                 </tr>

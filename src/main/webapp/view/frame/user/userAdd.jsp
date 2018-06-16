@@ -97,14 +97,13 @@
                     <input type="text" class="input w50" value="" name="recordSchool" data-validate="required:请输入标题"/>
                     <div class="tips"></div>
                 </div>
-
-                <div class="form-group">
-                    <div class="label">
-                        <label></label>
-                    </div>
-                    <div class="field">
-                        <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label></label>
+                </div>
+                <div class="field">
+                    <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
                 </div>
             </div>
         </form>
