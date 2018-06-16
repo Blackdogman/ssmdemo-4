@@ -34,7 +34,7 @@
     <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
     <h2><span class="icon-user"></span>基本设置</h2>
     <ul style="display:block">
-        <li><a href="info.jsp" target="right"><span class="icon-caret-right"></span>用户管理</a></li>
+        <li><a href="<%=basePath%>userController/userListUi.do" target="right"><span class="icon-caret-right"></span>用户管理</a></li>
         <li><a href="info.jsp" target="right"><span class="icon-caret-right"></span>角色管理</a></li>
         <li><a href="info.jsp" target="right"><span class="icon-caret-right"></span>菜单管理</a></li>
     </ul>
@@ -55,7 +55,7 @@
 <ul class="bread">
     <li><a href="{:U('Index/info')}" target="right" class="icon-home"> 首页</a></li>
     <li><a href="##" id="a_leader_txt">网站信息</a></li>
-    <li><b>当前语言：</b><span style="color:red;">中文</php></span>
+    <li><b>当前语言：</b><span style="color:red;">中文</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a></li>
 </ul>
 <div class="admin">
