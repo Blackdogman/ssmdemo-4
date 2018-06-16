@@ -19,6 +19,6 @@ public class MenuController {
     public String menuListUi(Model model){
         List<Menu> menuList = menuService.listAllMenu();
         model.addAttribute("menuList", menuList);
-        return "/view/frame/menu/menuList";
+        return "/view/frame/menupage/menuList";
     }
 }
