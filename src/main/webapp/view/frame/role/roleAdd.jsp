@@ -28,7 +28,7 @@
         <form method="post" class="form-x" action="<%=basePath%>roleController/addRole.do">
             <div class="form-group">
                 <div class="label">
-                    <label>roleName：</label>
+                    <label>角色名称：</label>
                 </div>
                 <div class="field">
                     <input type="text" class="input w50" value="" name="roleName" data-validate="required:请输入标题"/>
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>roleDesc：</label>
+                    <label>角色说明：</label>
                 </div>
                 <div class="field">
                     <input type="text" class="input w50" value="" name="roleDesc" data-validate="required:请输入标题"/>
@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>roleState：</label>
+                    <label>角色状态：</label>
                 </div>
                 <div class="field">
                     <input type="text" class="input w50" value="" name="roleState" data-validate="required:请输入标题"/>

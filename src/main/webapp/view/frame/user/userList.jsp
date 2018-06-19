@@ -33,7 +33,7 @@
                     </a>
                     <button type="button" class="button border-green" id="checkall"><span class="icon-check"></span> 全选
                     </button>
-                    <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
+                    <button type="button" onclick="DelSelect();" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
                 </li>
             </ul>
         </div>
@@ -47,12 +47,11 @@
                 <th>籍贯</th>
                 <th>毕业院校</th>
                 <th>创建时间</th>
-                <th>删除</th>
-                <th>修改</th>
+                <th>操作</th>
             </tr>
             <c:forEach var="user" items="${userList}">
                 <tr>
-                    <td><input type="checkbox" name="id[]" value="1"/>
+                    <td><input type="checkbox" name="id[]" value="${user.userId}"/>
                             ${user.userId}
                     </td>
                     <td>${user.userName}</td>
@@ -63,14 +62,13 @@
                     <td>${user.recordSchool}</td>
                     <td>${user.createTime}</td>
                     <td>
-                        <div class="button-group"><a class="button border-red"
+                        <div class="button-group">
+                            <a class="button border-red"
                                                      href="<%=basePath%>userController/deleteUser.do?userId=${user.userId}"><span
-                                class="icon-trash-o"></span> 删除</a></div>
-                    </td>
-                    <td>
-                        <div class="button-group"><a class="button border-blue"
-                                                     href="<%=basePath%>userController/updateUserUi.do?userId=${user.userId}"><span
-                                class="icon-database"></span> 修改</a>
+                                class="icon-trash-o"></span> 删除</a>
+                            <a class="button border-blue"
+                               href="<%=basePath%>userController/updateUserUi.do?userId=${user.userId}"><span
+                                    class="icon-database"></span> 修改</a>
                         </div>
                     </td>
                 </tr>
@@ -105,14 +103,30 @@
 
     function DelSelect() {
         var Checkbox = false;
+        var idList = new Array();
         $("input[name='id[]']").each(function () {
             if (this.checked == true) {
                 Checkbox = true;
+                idList.push(this.value);
             }
         });
         if (Checkbox) {
             var t = confirm("您确认要删除选中的内容吗？");
-            if (t == false) return false;
+            console.log(idList);
+            if (t == false){
+                return false;
+            }else {
+                $.ajax({
+                    url: "<%=basePath%>testController/getArray.do",
+                    data: {
+                        idList: idList
+                    },
+                    type: "post",
+                    success: function () {
+                        alert("成功");
+                    }
+                });
+            }
         }
         else {
             alert("请选择您要删除的内容!");

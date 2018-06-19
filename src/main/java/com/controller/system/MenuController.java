@@ -24,6 +24,13 @@ public class MenuController {
         return "view/frame/menupage/menuList";
     }
 
+    @RequestMapping("/addMenuUi.do")
+    public String addMenuUi(Model model){
+        List<Menu> menuList = menuService.listAllMenu();
+        model.addAttribute("menuList", menuList);
+        return "view/frame/menupage/menuAdd";
+    }
+
     @RequestMapping("/addMenu.do")
     public String addMenu(Menu menu){
         menu.setMenuId(PrimaryKeyUtil.getPrimaryKey());
@@ -41,6 +48,8 @@ public class MenuController {
     @RequestMapping("/updateMenuUi.do")
     public String updateMenuUi(String menuId, Model model){
         Menu menu = menuService.getMenuByMenuId(menuId);
+        List<Menu> menuList = menuService.listAllMenu();
+        model.addAttribute("menuList", menuList);
         model.addAttribute("menu", menu);
         return "view/frame/menupage/menuUpdate";
     }

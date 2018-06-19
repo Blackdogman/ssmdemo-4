@@ -28,7 +28,7 @@
         <div class="padding border-bottom">
             <ul class="search">
                 <li>
-                    <a href="<%=basePath%>view/frame/menupage/menuAdd.jsp" class="button border-blue" id=""><span
+                    <a href="<%=basePath%>menuController/addMenuUi.do" class="button border-blue" id=""><span
                             class="icon-database"></span> 添加
                     </a>
                     <button type="button" class="button border-green" id="checkall"><span class="icon-check"></span> 全选
@@ -40,31 +40,31 @@
         <table class="table table-hover text-center">
             <tr>
                 <th width="120">菜单ID</th>
-                <th>anthortyName</th>
-                <th>anthortyDesc</th>
-                <th>anthortyUrl</th>
-                <th>createTime</th>
-                <th>删除</th>
-                <th>修改</th>
+                <th>父级ID</th>
+                <th>菜单名称</th>
+                <th>菜单注释</th>
+                <th>Url</th>
+                <th>创建时间</th>
+                <th>操作</th>
             </tr>
             <c:forEach var="menu" items="${menuList}">
                 <tr>
                     <td><input type="checkbox" name="id[]" value="1"/>
                             ${menu.menuId}
                     </td>
+                    <td>${menu.pId}</td>
                     <td>${menu.anthortyName}</td>
                     <td>${menu.anthortyDesc}</td>
                     <td>${menu.anthortyUrl}</td>
                     <td>${menu.createTime}</td>
                     <td>
-                        <div class="button-group"><a class="button border-red"
+                        <div class="button-group">
+                            <a class="button border-red"
                                                      href="<%=basePath%>menuController/deleteMenu.do?menuId=${menu.menuId}"><span
-                                class="icon-trash-o"></span> 删除</a></div>
-                    </td>
-                    <td>
-                        <div class="button-group"><a class="button border-blue"
-                                                     href="<%=basePath%>menuController/updateMenuUi.do?menuId=${menu.menuId}"><span
-                                class="icon-database"></span> 修改</a>
+                                class="icon-trash-o"></span> 删除</a>
+                            <a class="button border-blue"
+                               href="<%=basePath%>menuController/updateMenuUi.do?menuId=${menu.menuId}"><span
+                                    class="icon-database"></span> 修改</a>
                         </div>
                     </td>
                 </tr>

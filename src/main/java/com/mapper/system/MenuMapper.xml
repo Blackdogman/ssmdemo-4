@@ -107,6 +107,6 @@
     <select id="listAllMenu" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from sys_menu
+        from sys_menu ORDER BY create_time
     </select>
 </mapper>

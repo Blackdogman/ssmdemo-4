@@ -20,4 +20,6 @@ public interface UserMapper {
     User getUserByLoginNameAndPassword(User user);
 
     List<User> listAllUser();
+
+    int deleteByPrimaryKeyList(List<String> idList);
 }

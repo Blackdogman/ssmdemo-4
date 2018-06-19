@@ -44,8 +44,7 @@
                 <th>roleDesc</th>
                 <th>roleState</th>
                 <th>createTime</th>
-                <th>删除</th>
-                <th>修改</th>
+                <th>操作</th>
             </tr>
             <c:forEach var="role" items="${roleList}">
                 <tr>
@@ -57,14 +56,13 @@
                     <td>${role.roleState}</td>
                     <td>${role.createTime}</td>
                     <td>
-                        <div class="button-group"><a class="button border-red"
+                        <div class="button-group">
+                            <a class="button border-red"
                                                      href="<%=basePath%>roleController/deleteRole.do?roleId=${role.roleId}"><span
-                                class="icon-trash-o"></span> 删除</a></div>
-                    </td>
-                    <td>
-                        <div class="button-group"><a class="button border-blue"
-                                                     href="<%=basePath%>roleController/updateRoleUi.do?roleId=${role.roleId}"><span
-                                class="icon-database"></span> 修改</a>
+                                class="icon-trash-o"></span> 删除</a>
+                            <a class="button border-blue"
+                               href="<%=basePath%>roleController/updateRoleUi.do?roleId=${role.roleId}"><span
+                                    class="icon-database"></span> 修改</a>
                         </div>
                     </td>
                 </tr>

@@ -29,6 +29,24 @@
             <input type="hidden" name="menuId" value="${menu.menuId}"/>
             <div class="form-group">
                 <div class="label">
+                    父级元素：
+                </div>
+                <div class="field">
+                    <select class="selected" name="pId">
+                        <option>-请选择-</option>
+                        <c:forEach items="${menuList}" var="menu2">
+                            <c:if test="${menu2.menuId != menu.pId}">
+                                <option value="${menu2.menuId}">${menu2.anthortyName}</option>
+                            </c:if>
+                            <c:if test="${menu2.menuId == menu.pId}">
+                                <option value="${menu2.menuId}" selected="selected">${menu2.anthortyName}</option>
+                            </c:if>
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
                     <label>anthortyName：</label>
                 </div>
                 <div class="field">
