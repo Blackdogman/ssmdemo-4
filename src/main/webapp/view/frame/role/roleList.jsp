@@ -29,7 +29,7 @@
             <ul class="search">
                 <li>
                     <a href="<%=basePath%>view/frame/role/roleAdd.jsp" class="button border-blue" id=""><span
-                            class="icon-database"></span> 添加
+                            class="icon-plus"></span> 添加
                     </a>
                     <button type="button" class="button border-green" id="checkall"><span class="icon-check"></span> 全选
                     </button>
@@ -58,8 +58,8 @@
                     <td>
                         <div class="button-group">
                             <a class="button border-red"
-                                                     href="<%=basePath%>roleController/deleteRole.do?roleId=${role.roleId}"><span
-                                class="icon-trash-o"></span> 删除</a>
+                               href="<%=basePath%>roleController/deleteRole.do?roleId=${role.roleId}"><span
+                                    class="icon-trash-o"></span> 删除</a>
                             <a class="button border-blue"
                                href="<%=basePath%>roleController/updateRoleUi.do?roleId=${role.roleId}"><span
                                     class="icon-database"></span> 修改</a>

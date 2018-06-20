@@ -32,7 +32,7 @@
                     父级元素：
                 </div>
                 <div class="field">
-                    <select class="selected" name="pId">
+                    <select class="input w50" name="pId">
                         <option>-请选择-</option>
                         <c:forEach items="${menuList}" var="menu2">
                             <c:if test="${menu2.menuId != menu.pId}">
@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>anthortyName：</label>
+                    <label>菜单名称：</label>
                 </div>
                 <div class="field">
                     <input type="text" class="input w50" value="${menu.anthortyName}" name="anthortyName" data-validate="required:请输入标题"/>
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>anthortyDesc：</label>
+                    <label>菜单注释：</label>
                 </div>
                 <div class="field">
                     <input type="text" class="input w50" value="${menu.anthortyDesc}" name="anthortyDesc" data-validate="required:请输入标题"/>
@@ -65,7 +65,7 @@
             </div>
             <div class="form-group">
                 <div class="label">
-                    <label>anthortyUrl：</label>
+                    <label>Url：</label>
                 </div>
                 <div class="field">
                     <input type="text" class="input w50" value="${menu.anthortyUrl}" name="anthortyUrl" data-validate="required:请输入标题"/>

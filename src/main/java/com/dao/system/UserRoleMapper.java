@@ -2,6 +2,8 @@ package com.dao.system;
 
 import com.model.system.UserRole;
 
+import java.util.List;
+
 public interface UserRoleMapper {
     int deleteByPrimaryKey(String userRoleId);
 
@@ -14,4 +16,8 @@ public interface UserRoleMapper {
     int updateByPrimaryKeySelective(UserRole record);
 
     int updateByPrimaryKey(UserRole record);
+
+    List<UserRole> selectByUserId(String userId);
+
+    int deleteByUserId(String userId);
 }

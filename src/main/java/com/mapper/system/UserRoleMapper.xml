@@ -68,4 +68,16 @@
       role_id = #{roleId,jdbcType=VARCHAR}
     where user_role_id = #{userRoleId,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_user_role
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user_role
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
 </mapper>

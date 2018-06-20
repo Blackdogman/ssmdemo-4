@@ -29,11 +29,13 @@
             <ul class="search">
                 <li>
                     <a href="<%=basePath%>view/frame/user/userAdd.jsp" class="button border-blue" id=""><span
-                            class="icon-database"></span> 添加
+                            class="icon-plus"></span> 添加
                     </a>
                     <button type="button" class="button border-green" id="checkall"><span class="icon-check"></span> 全选
                     </button>
-                    <button type="button" onclick="DelSelect();" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
+                    <button type="button" onclick="DelSelect();" class="button border-red"><span
+                            class="icon-trash-o"></span> 批量删除
+                    </button>
                 </li>
             </ul>
         </div>
@@ -64,11 +66,14 @@
                     <td>
                         <div class="button-group">
                             <a class="button border-red"
-                                                     href="<%=basePath%>userController/deleteUser.do?userId=${user.userId}"><span
-                                class="icon-trash-o"></span> 删除</a>
+                               href="<%=basePath%>userController/deleteUser.do?userId=${user.userId}"><span
+                                    class="icon-trash-o"></span> 删除</a>
                             <a class="button border-blue"
                                href="<%=basePath%>userController/updateUserUi.do?userId=${user.userId}"><span
                                     class="icon-database"></span> 修改</a>
+                            <a class="button border-yellow"
+                               href="<%=basePath%>userRoleController/userRoleSetUi.do?userId=${user.userId}"><span
+                                    class="icon-user"></span> 分配角色</a>
                         </div>
                     </td>
                 </tr>
@@ -113,9 +118,9 @@
         if (Checkbox) {
             var t = confirm("您确认要删除选中的内容吗？");
             console.log(idList);
-            if (t == false){
+            if (t == false) {
                 return false;
-            }else {
+            } else {
                 $.ajax({
                     url: "<%=basePath%>testController/getArray.do",
                     data: {

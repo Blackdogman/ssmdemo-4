@@ -31,7 +31,7 @@
                     父级元素：
                 </div>
                 <div class="field">
-                    <select class="selected" name="pId">
+                    <select class="input w50"  name="pId">
                         <option>-请选择-</option>
                         <c:forEach items="${menuList}" var="menu">
                             <option value="${menu.menuId}">${menu.anthortyName}</option>
