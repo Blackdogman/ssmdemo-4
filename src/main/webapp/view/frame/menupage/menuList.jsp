@@ -56,7 +56,7 @@
                     <td>${menu.anthortyName}</td>
                     <td>${menu.anthortyDesc}</td>
                     <td>${menu.anthortyUrl}</td>
-                    <td>${menu.createTime}</td>
+                    <td><fmt:formatDate value="${menu.createTime}" type="both"/></td>
                     <td>
                         <div class="button-group">
                             <a class="button border-red"

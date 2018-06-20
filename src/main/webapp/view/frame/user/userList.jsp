@@ -62,7 +62,7 @@
                     <td>${user.sex}</td>
                     <td>${user.nativePlace}</td>
                     <td>${user.recordSchool}</td>
-                    <td>${user.createTime}</td>
+                    <td><fmt:formatDate value="${user.createTime}" type="both"/></td>
                     <td>
                         <div class="button-group">
                             <a class="button border-red"

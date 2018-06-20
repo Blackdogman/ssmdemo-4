@@ -19,13 +19,18 @@ public class UserRoleServiceImpl implements UserRoleService {
     public int changeUserRole(String userId, List<String> roleIdList) {
         int flag = userRoleMapper.deleteByUserId(userId);
         int flag2 = -1;
-                    List<UserRole> userRoleList = new ArrayList<>();
-            for(String roleId : roleIdList) {
-                userRoleList.add(new UserRole(PrimaryKeyUtil.getPrimaryKey(), userId, roleId));
+        List<UserRole> userRoleList = new ArrayList<>();
+        for (String roleId : roleIdList) {
+            userRoleList.add(new UserRole(PrimaryKeyUtil.getPrimaryKey(), userId, roleId));
         }
-        for(UserRole item : userRoleList){
+        for (UserRole item : userRoleList) {
             flag2 = userRoleMapper.insertSelective(item);
         }
         return flag2;
+    }
+
+    @Override
+    public List<UserRole> listUserRoleByUserId(String userId) {
+        return userRoleMapper.selectByUserId(userId);
     }
 }

@@ -54,7 +54,7 @@
                     <td>${role.roleName}</td>
                     <td>${role.roleDesc}</td>
                     <td>${role.roleState}</td>
-                    <td>${role.createTime}</td>
+                    <td><fmt:formatDate value="${role.createTime}" type="both"/></td>
                     <td>
                         <div class="button-group">
                             <a class="button border-red"
@@ -63,6 +63,9 @@
                             <a class="button border-blue"
                                href="<%=basePath%>roleController/updateRoleUi.do?roleId=${role.roleId}"><span
                                     class="icon-database"></span> 修改</a>
+                            <a class="button border-yellow"
+                               href="<%=basePath%>roleController/roleMenuSetUi.do?roleId=${role.roleId}"><span
+                                    class="icon-user"></span> 分配菜单</a>
                         </div>
                     </td>
                 </tr>

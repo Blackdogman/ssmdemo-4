@@ -2,6 +2,8 @@ package com.dao.system;
 
 import com.model.system.RoleMenu;
 
+import java.util.List;
+
 public interface RoleMenuMapper {
     int deleteByPrimaryKey(String roleMenuId);
 
@@ -14,4 +16,8 @@ public interface RoleMenuMapper {
     int updateByPrimaryKeySelective(RoleMenu record);
 
     int updateByPrimaryKey(RoleMenu record);
+
+    List<RoleMenu> selectByRoleId(String roleId);
+
+    int deleteByRoleId(String roleId);
 }

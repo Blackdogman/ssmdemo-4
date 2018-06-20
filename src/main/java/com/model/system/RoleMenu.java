@@ -7,6 +7,12 @@ public class RoleMenu {
 
     private String menuId;
 
+    public RoleMenu(String roleMenuId, String roleId, String menuId) {
+        this.roleMenuId = roleMenuId;
+        this.roleId = roleId;
+        this.menuId = menuId;
+    }
+
     public String getRoleMenuId() {
         return roleMenuId;
     }

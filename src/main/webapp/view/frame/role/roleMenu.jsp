@@ -26,15 +26,15 @@
     <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>分配权限</strong></div>
     <div class="body-content">
         <div style="float: left; padding-left: 25px;">
-            <p>用户id: ${user.userId}</p>
-            <p>用户名: ${user.userName}</p>
+            <p>角色id: ${role.roleId}</p>
+            <p>角色名: ${role.roleName}</p>
         </div>
         <div style="float: left; margin-left: 25px; height: 400px; overflow:auto;">
-            <form method="post" class="form-x" action="<%=basePath%>userController/updateUserRole.do">
-                <input type="hidden" name="userId" value="${user.userId}"/>
+            <form method="post" class="form-x" action="<%=basePath%>roleController/updateRoleMenu.do">
+                <input type="hidden" name="roleId" value="${role.roleId}"/>
                 <div class="form-group" id="checkboxlist">
-                    <c:forEach items="${roleList}" var="role">
-                        <p><input type="checkbox" name="roleId" value="${role.roleId}"/>${role.roleName}</p>
+                    <c:forEach items="${menuList}" var="menu">
+                        <p><input type="checkbox" name="menuId" value="${menu.menuId}"/>${menu.anthortyName}</p>
                     </c:forEach>
                 </div>
                 <div class="form-group">
@@ -47,7 +47,7 @@
 </body>
 <script>
     $(function(){
-        var list = ${userRoleList};
+        var list = ${roleMenuIdListJson};
         $("#checkboxlist input").each(function(){
             for(var i in list){
                 if(this.value == list[i]){
