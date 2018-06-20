@@ -5,11 +5,24 @@ import javax.servlet.http.HttpServlet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.service.system.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
 public class BaseController extends HttpServlet {
+	@Autowired
+    protected UserRoleService userRoleService;
+	@Autowired
+    protected UserService userService;
+	@Autowired
+    protected RoleService roleService;
+    @Autowired
+    protected RoleMenuService roleMenuService;
+    @Autowired
+    protected MenuService menuService;
+
 	/**
 	 * 
 	 */

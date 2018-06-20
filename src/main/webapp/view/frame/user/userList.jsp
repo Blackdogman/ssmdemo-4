@@ -72,7 +72,7 @@
                                href="<%=basePath%>userController/updateUserUi.do?userId=${user.userId}"><span
                                     class="icon-database"></span> 修改</a>
                             <a class="button border-yellow"
-                               href="<%=basePath%>userRoleController/userRoleSetUi.do?userId=${user.userId}"><span
+                               href="<%=basePath%>userController/userRoleSetUi.do?userId=${user.userId}"><span
                                     class="icon-user"></span> 分配角色</a>
                         </div>
                     </td>

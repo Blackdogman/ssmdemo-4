@@ -30,7 +30,7 @@
             <p>用户名: ${user.userName}</p>
         </div>
         <div style="float: left; margin-left: 25px;">
-            <form method="post" class="form-x" action="<%=basePath%>userRoleController/updateUserRole.do">
+            <form method="post" class="form-x" action="<%=basePath%>userController/updateUserRole.do">
                 <input type="hidden" name="userId" value="${user.userId}"/>
                 <div class="form-group">
                     <c:forEach items="${roleList}" var="role">

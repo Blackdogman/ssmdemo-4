@@ -2,6 +2,7 @@ package com.controller.system;
 
 import com.model.system.Menu;
 import com.service.system.MenuService;
+import framework.controller.BaseController;
 import framework.utils.PrimaryKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/menuController")
-public class MenuController {
-    @Autowired
-    private MenuService menuService;
+public class MenuController extends BaseController {
 
     @RequestMapping("/menuListUi.do")
     public String menuListUi(Model model){

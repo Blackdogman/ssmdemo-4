@@ -2,6 +2,7 @@ package com.controller.system;
 
 import com.model.system.Role;
 import com.service.system.RoleService;
+import framework.controller.BaseController;
 import framework.utils.PrimaryKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/roleController")
-public class RoleController {
-    @Autowired
-    private RoleService roleService;
+public class RoleController extends BaseController {
 
     @RequestMapping("/roleListUi.do")
     public String roleListUi(Model model){

@@ -2,6 +2,7 @@ package com.controller.system;
 
 import com.model.system.User;
 import com.service.system.UserService;
+import framework.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +12,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/loginController")
-public class LoginController {
-    @Autowired
-    private UserService userService;
+public class LoginController extends BaseController {
 
     @RequestMapping("/login.do")
     public String login(User user, HttpSession session, Model model){
