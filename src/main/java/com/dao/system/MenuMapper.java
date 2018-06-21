@@ -18,4 +18,8 @@ public interface MenuMapper {
     int updateByPrimaryKey(Menu record);
 
     List<Menu> listAllMenu();
+
+    List<Menu> getUserMenu(String userId);
+
+    List<Menu> listKidMenuByMenuIdAndUserId(String userId, String menuId);
 }

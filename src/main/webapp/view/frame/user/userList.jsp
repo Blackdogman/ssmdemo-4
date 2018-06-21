@@ -56,7 +56,7 @@
             </tr>
             <c:forEach var="user" items="${pageResult.dataList}">
                 <tr>
-                    <td><input type="checkbox" name="id[]" value="${user.userId}"/>
+                    <td><input type="checkbox" name="id[]" value="${user.userId}" />
                             ${user.userId}
                     </td>
                     <td>${user.userName}</td>

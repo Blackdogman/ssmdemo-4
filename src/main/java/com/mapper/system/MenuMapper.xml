@@ -10,8 +10,8 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-    menu_id, p_id, anthorty_name, anthorty_desc, anthorty_url, create_time
-  </sql>
+        menu_id, p_id, anthorty_name, anthorty_desc, anthorty_url, create_time
+    </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -19,17 +19,17 @@
         where menu_id = #{menuId,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from sys_menu
-    where menu_id = #{menuId,jdbcType=VARCHAR}
-  </delete>
+        delete from sys_menu
+        where menu_id = #{menuId,jdbcType=VARCHAR}
+    </delete>
     <insert id="insert" parameterType="com.model.system.Menu">
-    insert into sys_menu (menu_id, p_id, anthorty_name, 
-      anthorty_desc, anthorty_url, create_time
-      )
-    values (#{menuId,jdbcType=VARCHAR}, #{pId,jdbcType=VARCHAR}, #{anthortyName,jdbcType=VARCHAR}, 
-      #{anthortyDesc,jdbcType=VARCHAR}, #{anthortyUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
-  </insert>
+        insert into sys_menu (menu_id, p_id, anthorty_name,
+                              anthorty_desc, anthorty_url, create_time
+        )
+        values (#{menuId,jdbcType=VARCHAR}, #{pId,jdbcType=VARCHAR}, #{anthortyName,jdbcType=VARCHAR},
+                #{anthortyDesc,jdbcType=VARCHAR}, #{anthortyUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
     <insert id="insertSelective" parameterType="com.model.system.Menu">
         insert into sys_menu
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -95,18 +95,36 @@
         where menu_id = #{menuId,jdbcType=VARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.model.system.Menu">
-    update sys_menu
-    set p_id = #{pId,jdbcType=VARCHAR},
-      anthorty_name = #{anthortyName,jdbcType=VARCHAR},
-      anthorty_desc = #{anthortyDesc,jdbcType=VARCHAR},
-      anthorty_url = #{anthortyUrl,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where menu_id = #{menuId,jdbcType=VARCHAR}
-  </update>
+        update sys_menu
+        set p_id          = #{pId,jdbcType=VARCHAR},
+            anthorty_name = #{anthortyName,jdbcType=VARCHAR},
+            anthorty_desc = #{anthortyDesc,jdbcType=VARCHAR},
+            anthorty_url  = #{anthortyUrl,jdbcType=VARCHAR},
+            create_time   = #{createTime,jdbcType=TIMESTAMP}
+        where menu_id = #{menuId,jdbcType=VARCHAR}
+    </update>
 
     <select id="listAllMenu" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from sys_menu ORDER BY create_time
+    </select>
+
+    <select id="getUserMenu" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT DISTINCT sys_menu.menu_id, sys_menu.p_id, sys_menu.anthorty_name, sys_menu.anthorty_desc, sys_menu.anthorty_url,sys_menu.create_time FROM sys_user
+        JOIN sys_user_role ON sys_user.user_id = sys_user_role.user_id
+        JOIN sys_role ON sys_user_role.role_id = sys_role.role_id
+        JOIN sys_role_menu ON sys_role_menu.role_id = sys_role.role_id
+        JOIN sys_menu ON sys_menu.menu_id = sys_role_menu.menu_id
+        WHERE sys_user.user_id = #{userId,jdbcType=VARCHAR} AND sys_menu.p_id = 'root';
+    </select>
+
+    <select id="listKidMenuByMenuIdAndUserId" resultMap="BaseResultMap">
+        SELECT DISTINCT sys_menu.menu_id, sys_menu.p_id, sys_menu.anthorty_name, sys_menu.anthorty_desc, sys_menu.anthorty_url,sys_menu.create_time FROM sys_user
+            JOIN sys_user_role ON sys_user.user_id = sys_user_role.user_id
+            JOIN sys_role ON sys_user_role.role_id = sys_role.role_id
+            JOIN sys_role_menu ON sys_role_menu.role_id = sys_role.role_id
+            JOIN sys_menu ON sys_menu.menu_id = sys_role_menu.menu_id
+        WHERE sys_user.user_id = #{0,jdbcType=VARCHAR} AND sys_menu.p_id = #{1,jdbcType=VARCHAR};
     </select>
 </mapper>

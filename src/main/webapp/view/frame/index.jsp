@@ -26,33 +26,40 @@
         <h1><img src="images/y.jpg" class="radius-circle rotate-hover" height="50" alt=""/>后台管理中心</h1>
     </div>
     <div class="head-l"><a class="button button-little bg-green" href="" target="_blank"><span class="icon-home"></span>
-        前台首页</a> &nbsp;&nbsp;<a href="##" class="button button-little bg-blue"><span class="icon-wrench"></span>
-        清除缓存</a> &nbsp;&nbsp;<a class="button button-little bg-red" href="login.html"><span
-            class="icon-power-off"></span> 退出登录</a></div>
+        前台首页</a>
+        &nbsp;&nbsp;<a href="##" class="button button-little bg-blue"><span class="icon-wrench"></span>
+            清除缓存</a>
+        &nbsp;&nbsp;<a class="button button-little bg-red" href="login.html"><span
+                class="icon-power-off"></span> 退出登录</a>
+        <div style="color: white;">欢迎您：${sessionScope.loginUser.userName}</div>
+    </div>
 </div>
 <div class="leftnav">
     <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
-    <h2><span class="icon-user"></span>基本设置</h2>
-    <ul style="display:block">
-        <li><a href="<%=basePath%>userController/userListUi.do" target="right"><span class="icon-caret-right"></span>用户管理</a>
-        </li>
-        <li><a href="<%=basePath%>roleController/roleListUi.do" target="right"><span class="icon-caret-right"></span>角色管理</a></li>
-        <li><a href="<%=basePath%>menuController/menuListUi.do" target="right"><span class="icon-caret-right"></span>菜单管理</a>
-        </li>
-    </ul>
+    <c:forEach items="${menuList}" var="menu">
+        <h2 onclick="menuClick('${menu.menuId}')"><span class="icon-user"></span>${menu.anthortyName}</h2>
+        <ul style="display:block" id="ul_${menu.menuId}"></ul>
+    </c:forEach>
+    <div id="test"></div>
 </div>
 <script type="text/javascript">
-    $(function () {
-        $(".leftnav h2").click(function () {
-            $(this).next().slideToggle(200);
-            $(this).toggleClass("on");
-        })
-        $(".leftnav ul li a").click(function () {
-            $("#a_leader_txt").text($(this).text());
-            $(".leftnav ul li a").removeClass("on");
-            $(this).addClass("on");
-        })
-    });
+    function menuClick(menuId) {
+        if ($("#ul_" + menuId + "").html() == '') {
+            $.ajax({
+                url: "<%=basePath%>menuController/getKidMenuList.do",
+                data: {
+                    menuId: menuId
+                },
+                type: "post",
+                async: false,
+                success: function (req) {
+                    $("#ul_" + menuId + "").html(req);
+                }
+            });
+        } else {
+            $("#ul_" + menuId + " li").toggle();
+        }
+    }
 </script>
 <ul class="bread">
     <li><a href="{:U('Index/info')}" target="right" class="icon-home"> 首页</a></li>
@@ -68,4 +75,9 @@
     <p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
 </div>
 </body>
+<script>
+    $(function () {
+        console.log(${jsonMenu});
+    });
+</script>
 </html>

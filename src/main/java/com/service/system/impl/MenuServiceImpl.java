@@ -47,4 +47,14 @@ public class MenuServiceImpl implements MenuService {
         List<Menu> menuList = menuMapper.listAllMenu();
         return PageBeanUtil.toPagedResult(menuList);
     }
+
+    @Override
+    public List<Menu> getUserMenu(String userId) {
+        return menuMapper.getUserMenu(userId);
+    }
+
+    @Override
+    public List<Menu> listKidMenuByMenuIdAndUserId(String userId, String menuId) {
+        return menuMapper.listKidMenuByMenuIdAndUserId(userId, menuId);
+    }
 }

@@ -17,4 +17,8 @@ public interface MenuService {
     int updateMenu(Menu menu);
 
     PagedResult<Menu> listAllMenuByPage(Integer pageNumber, Integer pageSize);
+
+    List<Menu> getUserMenu(String userId);
+
+    List<Menu> listKidMenuByMenuIdAndUserId(String userId, String menuId);
 }

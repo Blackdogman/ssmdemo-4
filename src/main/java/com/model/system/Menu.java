@@ -65,4 +65,16 @@ public class Menu {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "menuId='" + menuId + '\'' +
+                ", pId='" + pId + '\'' +
+                ", anthortyName='" + anthortyName + '\'' +
+                ", anthortyDesc='" + anthortyDesc + '\'' +
+                ", anthortyUrl='" + anthortyUrl + '\'' +
+                ", createTime=" + createTime +
+                '}';
+    }
 }
