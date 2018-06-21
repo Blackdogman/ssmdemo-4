@@ -2,7 +2,6 @@ package com.service.system.impl;
 
 import com.dao.system.RoleMenuMapper;
 import com.model.system.RoleMenu;
-import com.model.system.UserRole;
 import com.service.system.RoleMenuService;
 import framework.utils.PrimaryKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,7 @@
 package com.service.system;
 
 import com.model.system.User;
+import framework.utils.pageUtil.PagedResult;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface UserService {
     User getUserByUserId(String userId);
 
     int updateUser(User user);
+
+    PagedResult<User> listAllByPage(Integer pageNumber, Integer pageSize);
 }

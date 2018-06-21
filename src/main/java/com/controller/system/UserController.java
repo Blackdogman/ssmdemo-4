@@ -1,17 +1,17 @@
 package com.controller.system;
 
-import com.alibaba.druid.support.json.JSONWriter;
 import com.model.system.Role;
 import com.model.system.User;
 import com.model.system.UserRole;
-import com.service.system.UserService;
 import framework.controller.BaseController;
 import framework.utils.JsonUtils;
 import framework.utils.PrimaryKeyUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import framework.utils.pageUtil.PagedResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.portlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,10 +22,14 @@ import java.util.List;
 @RequestMapping("/userController")
 public class UserController extends BaseController {
 
-    @RequestMapping("/userListUi.do")
-    public String userListUi(Model model) {
-        List<User> userList = userService.listAllUser();
-        model.addAttribute("userList", userList);
+    @RequestMapping(value = "userListUi.do", produces = "application/json;charset=utf-8")
+    public String userListUiPage(
+            @RequestParam(value = "pageNumber", defaultValue = "1") Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+            Model model
+    ) {
+        PagedResult<User> pageResult = userService.listAllByPage(pageNumber, pageSize);
+        model.addAttribute("pageResult", pageResult);
         return "view/frame/user/userList";
     }
 
@@ -51,20 +55,20 @@ public class UserController extends BaseController {
     }
 
     @RequestMapping("/updateUser.do")
-    public String updateUser(User user){
+    public String updateUser(User user) {
         int flag = userService.updateUser(user);
         return "redirect:/userController/userListUi.do";
     }
 
     @RequestMapping("/userRoleSetUi.do")
-    public String userRoleSetUi(String userId, Model model){
+    public String userRoleSetUi(String userId, Model model) {
         User user = userService.getUserByUserId(userId);
         List<Role> roleList = roleService.listAllRole();
         List<UserRole> userRoleList = userRoleService.listUserRoleByUserId(userId);
         model.addAttribute("user", user);
         model.addAttribute("roleList", roleList);
         List<String> userRoleIdList = new ArrayList<>();
-        for(UserRole userRole : userRoleList){
+        for (UserRole userRole : userRoleList) {
             userRoleIdList.add(userRole.getRoleId());
         }
         //得到现在用户已经拥有角色的角色IDList
@@ -74,9 +78,17 @@ public class UserController extends BaseController {
     }
 
     @RequestMapping("/updateUserRole.do")
-    public String updateUserRole(String userId, String[] roleId){
+    public String updateUserRole(String userId, String[] roleId) {
         List<String> roleIdList = new ArrayList<>(Arrays.asList(roleId));
         int flag = userRoleService.changeUserRole(userId, roleIdList);
+        return "redirect:/userController/userListUi.do";
+    }
+
+    @RequestMapping("/deleteUserList.do")
+    public String deleteUserList(@RequestParam("idList[]") List<String> idList) {
+        for (String id : idList) {
+            userService.deleteUser(id);
+        }
         return "redirect:/userController/userListUi.do";
     }
 }

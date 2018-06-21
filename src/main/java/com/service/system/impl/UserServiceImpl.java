@@ -1,8 +1,11 @@
 package com.service.system.impl;
 
 import com.dao.system.UserMapper;
+import com.github.pagehelper.PageHelper;
 import com.model.system.User;
 import com.service.system.UserService;
+import framework.utils.pageUtil.PageBeanUtil;
+import framework.utils.pageUtil.PagedResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +44,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateUser(User user) {
         return userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public PagedResult<User> listAllByPage(Integer pageNumber, Integer pageSize) {
+        PageHelper.startPage(pageNumber, pageSize);
+        List<User> userList = userMapper.listAllUser();
+        return PageBeanUtil.toPagedResult(userList);
     }
 }

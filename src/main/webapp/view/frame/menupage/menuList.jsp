@@ -33,7 +33,6 @@
                     </a>
                     <button type="button" class="button border-green" id="checkall"><span class="icon-check"></span> 全选
                     </button>
-                    <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
                 </li>
             </ul>
         </div>

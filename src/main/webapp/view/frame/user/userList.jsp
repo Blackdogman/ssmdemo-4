@@ -20,8 +20,11 @@
     <link rel="stylesheet" href="css/admin.css">
     <script src="js/jquery.js"></script>
     <script src="js/pintuer.js"></script>
+    <script type="text/javascript" src="<%=basePath%>js/kkpager/jpager.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>js/kkpager/jpager.css">
+    <script type="text/javascript" src="<%=basePath%>view/frame/user/listPage.js"></script>
 </head>
-<body>
+<body onload="load()">
 <form method="post" action="">
     <div class="panel admin-panel">
         <div class="panel-head"><strong class="icon-reorder"> 留言管理</strong></div>
@@ -51,7 +54,7 @@
                 <th>创建时间</th>
                 <th>操作</th>
             </tr>
-            <c:forEach var="user" items="${userList}">
+            <c:forEach var="user" items="${pageResult.dataList}">
                 <tr>
                     <td><input type="checkbox" name="id[]" value="${user.userId}"/>
                             ${user.userId}
@@ -78,16 +81,14 @@
                     </td>
                 </tr>
             </c:forEach>
-            <tr>
-                <td colspan="10">
-                    <div class="pagelist"><a href="">上一页</a> <span class="current">1</span><a href="">2</a><a
-                            href="">3</a><a href="">下一页</a><a href="">尾页</a></div>
-                </td>
-            </tr>
         </table>
     </div>
 </form>
+<div align="center" id="jpager"></div>
 <script type="text/javascript">
+    function load() {
+        arrayPage(${pageResult.pages},${pageResult.total});
+    }
 
     function del(id) {
         if (confirm("您确定要删除吗?")) {
@@ -122,13 +123,14 @@
                 return false;
             } else {
                 $.ajax({
-                    url: "<%=basePath%>testController/getArray.do",
+                    url: "<%=basePath%>userController/deleteUserList.do",
                     data: {
                         idList: idList
                     },
                     type: "post",
                     success: function () {
                         alert("成功");
+                        location.reload(true);   
                     }
                 });
             }
