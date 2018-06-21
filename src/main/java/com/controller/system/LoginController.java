@@ -31,32 +31,3 @@ public class LoginController extends BaseController {
         }
     }
 }
-
-class MenuListModel{
-    private Menu menu;
-    private List<Menu> menuList;
-
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
-
-    public List<Menu> getMenuList() {
-        return menuList;
-    }
-
-    public void setMenuList(List<Menu> menuList) {
-        this.menuList = menuList;
-    }
-
-    @Override
-    public String toString() {
-        return "MenuListModel{" +
-                "menu=" + menu +
-                ", menuList=" + menuList +
-                '}';
-    }
-}
