@@ -75,9 +75,4 @@
     <p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
 </div>
 </body>
-<script>
-    $(function () {
-        console.log(${jsonMenu});
-    });
-</script>
 </html>
