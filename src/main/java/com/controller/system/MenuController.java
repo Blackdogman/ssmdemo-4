@@ -1,13 +1,16 @@
 package com.controller.system;
 
 import com.model.system.Menu;
+import com.model.system.Role;
 import com.service.system.MenuService;
 import framework.controller.BaseController;
 import framework.utils.PrimaryKeyUtil;
+import framework.utils.pageUtil.PagedResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
@@ -16,10 +19,14 @@ import java.util.List;
 @RequestMapping("/menuController")
 public class MenuController extends BaseController {
 
-    @RequestMapping("/menuListUi.do")
-    public String menuListUi(Model model){
-        List<Menu> menuList = menuService.listAllMenu();
-        model.addAttribute("menuList", menuList);
+    @RequestMapping(value = "menuListUi.do", produces = "application/json;charset=utf-8")
+    public String userListUiPage(
+            @RequestParam(value = "pageNumber", defaultValue = "1") Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+            Model model
+    ) {
+        PagedResult<Menu> pageResult = menuService.listAllMenuByPage(pageNumber, pageSize);
+        model.addAttribute("pageResult", pageResult);
         return "view/frame/menupage/menuList";
     }
 

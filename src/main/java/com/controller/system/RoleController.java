@@ -5,10 +5,12 @@ import com.service.system.RoleService;
 import framework.controller.BaseController;
 import framework.utils.JsonUtils;
 import framework.utils.PrimaryKeyUtil;
+import framework.utils.pageUtil.PagedResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,10 +21,14 @@ import java.util.List;
 @RequestMapping("/roleController")
 public class RoleController extends BaseController {
 
-    @RequestMapping("/roleListUi.do")
-    public String roleListUi(Model model){
-        List<Role> roleList = roleService.listAllRole();
-        model.addAttribute("roleList", roleList);
+    @RequestMapping(value = "roleListUi.do", produces = "application/json;charset=utf-8")
+    public String userListUiPage(
+            @RequestParam(value = "pageNumber", defaultValue = "1") Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+            Model model
+    ) {
+        PagedResult<Role> pageResult = roleService.listAllRoleByPage(pageNumber, pageSize);
+        model.addAttribute("pageResult", pageResult);
         return "view/frame/role/roleList";
     }
 

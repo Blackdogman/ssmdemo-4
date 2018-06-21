@@ -1,6 +1,7 @@
 package com.service.system;
 
 import com.model.system.Menu;
+import framework.utils.pageUtil.PagedResult;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface MenuService {
     Menu getMenuByMenuId(String menuId);
 
     int updateMenu(Menu menu);
+
+    PagedResult<Menu> listAllMenuByPage(Integer pageNumber, Integer pageSize);
 }

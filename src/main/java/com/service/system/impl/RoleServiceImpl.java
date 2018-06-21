@@ -1,8 +1,11 @@
 package com.service.system.impl;
 
 import com.dao.system.RoleMapper;
+import com.github.pagehelper.PageHelper;
 import com.model.system.Role;
 import com.service.system.RoleService;
+import framework.utils.pageUtil.PageBeanUtil;
+import framework.utils.pageUtil.PagedResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +39,12 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public int deleteRole(String roleId) {
         return roleMapper.deleteByPrimaryKey(roleId);
+    }
+
+    @Override
+    public PagedResult<Role> listAllRoleByPage(Integer pageNumber, Integer pageSize) {
+        PageHelper.startPage(pageNumber, pageSize);
+        List<Role> roleList = roleMapper.listAllRole();
+        return PageBeanUtil.toPagedResult(roleList);
     }
 }
