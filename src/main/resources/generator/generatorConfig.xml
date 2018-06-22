@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<!-- 配置驱动 -->
-	<classPathEntry location="/Users/Blackdogman/mysql-connector-java-5.1.5-bin.jar"/>	
-    <context id="context1" >
-  	<commentGenerator>
-           <property name="suppressDate" value="true"/>  
-           <!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
-           <property name="suppressAllComments" value="true"/>  
-	</commentGenerator>
-	
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/ssmWork" userId="root" password="superboy123" />
-    <!-- 生成实体类 实体bean文件 -->	
-    <javaModelGenerator targetPackage="com.model.system" targetProject="ssmdemo-4" />
-  	<!-- mapper xml文件 -->
-    <sqlMapGenerator targetPackage="com.mapper.system" targetProject="ssmdemo-4" />
-   	<!-- mapper 接口文件 -->
-    <javaClientGenerator targetPackage="com.dao.system" targetProject="ssmdemo-4" type="XMLMAPPER" />
+    <!-- 配置驱动 -->
+    <classPathEntry location="/Users/Blackdogman/mysql-connector-java-5.1.5-bin.jar"/>
+    <context id="context1">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
 
-	<table tableName="sys_menu" domainObjectName="Menu" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>
-	<table tableName="sys_role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>
-	<table tableName="sys_role_menu" domainObjectName="RoleMenu" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>
-	<table tableName="sys_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>
-	<table tableName="sys_user_role" domainObjectName="UserRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/ssmWork"
+                        userId="root" password="superboy123"/>
+        <!-- 生成实体类 实体bean文件 -->
+        <javaModelGenerator targetPackage="com.model.system" targetProject="ssmdemo-4"/>
+        <!-- mapper xml文件 -->
+        <sqlMapGenerator targetPackage="com.mapper.system" targetProject="ssmdemo-4"/>
+        <!-- mapper 接口文件 -->
+        <javaClientGenerator targetPackage="com.dao.system" targetProject="ssmdemo-4" type="XMLMAPPER"/>
 
- </context>
+        <!--<table tableName="sys_menu" domainObjectName="Menu" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>-->
+        <!--<table tableName="sys_role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>-->
+        <!--<table tableName="sys_role_menu" domainObjectName="RoleMenu" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>-->
+        <!--<table tableName="sys_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>-->
+        <!--<table tableName="sys_user_role" domainObjectName="UserRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" ></table>-->
+        <table tableName="sys_mail" domainObjectName="Mail" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+    </context>
 </generatorConfiguration>

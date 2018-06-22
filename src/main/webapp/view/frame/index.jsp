@@ -32,6 +32,7 @@
         &nbsp;&nbsp;<a class="button button-little bg-red" href="login.html"><span
                 class="icon-power-off"></span> 退出登录</a>
         <div style="color: white;">欢迎您：${sessionScope.loginUser.userName}</div>
+
     </div>
 </div>
 <div class="leftnav">
