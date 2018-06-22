@@ -22,6 +22,8 @@ public class BaseController extends HttpServlet {
     protected RoleMenuService roleMenuService;
     @Autowired
     protected MenuService menuService;
+    @Autowired
+	protected MailService mailService;
 
 	/**
 	 * 

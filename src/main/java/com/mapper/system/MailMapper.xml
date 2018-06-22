@@ -130,4 +130,13 @@
       flag = #{flag,jdbcType=VARCHAR}
     where mail_id = #{mailId,jdbcType=VARCHAR}
   </update>
+
+  <select id="listAllMailByFromUserId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_mail
+    where from_user_id = #{fromUserId,jdbcType=VARCHAR} AND flag != '0'
+  </select>
 </mapper>

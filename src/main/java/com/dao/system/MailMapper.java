@@ -2,6 +2,8 @@ package com.dao.system;
 
 import com.model.system.Mail;
 
+import java.util.List;
+
 public interface MailMapper {
     int deleteByPrimaryKey(String mailId);
 
@@ -16,4 +18,6 @@ public interface MailMapper {
     int updateByPrimaryKeyWithBLOBs(Mail record);
 
     int updateByPrimaryKey(Mail record);
+
+    List<Mail> listAllMailByFromUserId(String userId);
 }
