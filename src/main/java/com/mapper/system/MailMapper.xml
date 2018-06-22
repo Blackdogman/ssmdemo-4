@@ -137,6 +137,33 @@
     ,
     <include refid="Blob_Column_List" />
     from sys_mail
-    where from_user_id = #{fromUserId,jdbcType=VARCHAR} AND flag != '0'
+    where from_user_id = #{UserId,jdbcType=VARCHAR} AND flag != '0'
+  </select>
+
+  <select id="listAllMailByFromUserIdDraftBox" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_mail
+    where from_user_id = #{UserId,jdbcType=VARCHAR} AND flag = '0'
+  </select>
+
+  <select id="listAllMailByToUserId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_mail
+    where to_user_id = #{UserId,jdbcType=VARCHAR} AND (flag = '1' OR flag = '2')
+  </select>
+
+  <select id="listAllMailByToUserIdDeleteBox" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_mail
+    where to_user_id = #{UserId,jdbcType=VARCHAR} AND flag = '3'
   </select>
 </mapper>

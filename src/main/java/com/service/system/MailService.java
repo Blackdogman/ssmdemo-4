@@ -7,4 +7,14 @@ public interface MailService {
     int sendMail(Mail mail);
 
     PagedResult<Mail> listAllMailByFromUserId(String userId, Integer pageNumber, Integer pageSize);
+
+    PagedResult<Mail> listAllMailByToUserId(String userId, Integer pageNumber, Integer pageSize);
+
+    int saveDraft(Mail mail);
+
+    int deleteMail(String mailId);
+
+    PagedResult<Mail> listAllMailByToUserIdDeleteBox(String userId, Integer pageNumber, Integer pageSize);
+
+    PagedResult<Mail> listAllMailByFromUserIdDraftBox(String userId, Integer pageNumber, Integer pageSize);
 }

@@ -35,12 +35,59 @@ public class MailController extends BaseController {
         return "redirect:/mailController/mailSendHistoryUi.do";
     }
 
+    @RequestMapping("/saveDraft")
+    public String saveDraft(Mail mail, HttpSession session){
+        User user = (User) session.getAttribute("loginUser");
+        mail.setMailId(PrimaryKeyUtil.getPrimaryKey());
+        mail.setFlag("0");
+        mail.setFromUserId(user.getUserId());
+        mail.setCreateTime(new Date());
+        int flag = mailService.saveDraft(mail);
+        return null;
+    }
+
+    @RequestMapping("/deleteMail")
+    public String deleteMail(String mailId){
+        int flag = mailService.deleteMail(mailId);
+        return null;
+    }
+
     @RequestMapping(value = "/mailSendHistoryUi.do", produces = "application/json;charset=utf-8")
     public String mailSendHistoryUi(HttpSession session, Model model,
                                     @RequestParam(value = "pageNumber", defaultValue = "1") Integer pageNumber,
                                     @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
         User user = (User) session.getAttribute("loginUser");
         PagedResult<Mail> pageResult = mailService.listAllMailByFromUserId(user.getUserId(),pageNumber,pageSize);
+        model.addAttribute("pageResult", pageResult);
+        return "view/frame/mail/mailList";
+    }
+
+    @RequestMapping(value = "/mailMyBox.do", produces = "application/json;charset=utf-8")
+    public String mailMyBox(HttpSession session, Model model,
+                                    @RequestParam(value = "pageNumber", defaultValue = "1") Integer pageNumber,
+                                    @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        User user = (User) session.getAttribute("loginUser");
+        PagedResult<Mail> pageResult = mailService.listAllMailByToUserId(user.getUserId(),pageNumber,pageSize);
+        model.addAttribute("pageResult", pageResult);
+        return "view/frame/mail/mailList";
+    }
+
+    @RequestMapping(value = "/mailDeleteBox.do", produces = "application/json;charset=utf-8")
+    public String mailDeleteBox(HttpSession session, Model model,
+                            @RequestParam(value = "pageNumber", defaultValue = "1") Integer pageNumber,
+                            @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        User user = (User) session.getAttribute("loginUser");
+        PagedResult<Mail> pageResult = mailService.listAllMailByToUserIdDeleteBox(user.getUserId(),pageNumber,pageSize);
+        model.addAttribute("pageResult", pageResult);
+        return "view/frame/mail/mailList";
+    }
+
+    @RequestMapping(value = "/mailDraftBox.do", produces = "application/json;charset=utf-8")
+    public String mailDraftBox(HttpSession session, Model model,
+                                @RequestParam(value = "pageNumber", defaultValue = "1") Integer pageNumber,
+                                @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        User user = (User) session.getAttribute("loginUser");
+        PagedResult<Mail> pageResult = mailService.listAllMailByFromUserIdDraftBox(user.getUserId(),pageNumber,pageSize);
         model.addAttribute("pageResult", pageResult);
         return "view/frame/mail/mailList";
     }

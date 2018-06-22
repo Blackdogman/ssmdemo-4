@@ -20,4 +20,10 @@ public interface MailMapper {
     int updateByPrimaryKey(Mail record);
 
     List<Mail> listAllMailByFromUserId(String userId);
+
+    List<Mail> listAllMailByToUserId(String userId);
+
+    List<Mail> listAllMailByToUserIdDeleteBox(String userId);
+
+    List<Mail> listAllMailByFromUserIdDraftBox(String userId);
 }
